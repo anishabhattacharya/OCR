@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+    <head>
+        <title>Knowledge Growth</title>
+        <style>
+            body{
+                background-color: antiquewhite;
+            }
+            #title
+            {
+                font-family: "Agency FB";
+                font-size: 60px;
+                padding: 10px;
+                color: burlywood;
+                 text-align: center;
+            }
+            #icon
+            {
+                width: 200px;
+                height: 200px;
+
+            }
+            #copyright
+            {
+                background-color: cornflowerblue;
+                color: greenyellow;
+                font-family: Arial;
+                font-size: 15px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table align="center" border="0">
+            <tr>
+                <th>
+                    <img id = "icon" src="{% static 'images/admission.png' %}">
+                </th>
+                <th id="title">Online Course Registration</th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    {% block anisha %}
+                    {% endblock %}
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2" id="copyright">
+                    Copyright @ Learn with Us
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>

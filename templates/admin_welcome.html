@@ -1,0 +1,18 @@
+{% extends 'common.html' %}
+{% block anisha %}
+    <style>
+        .welcome{     font-size: 30px;
+                      font-family: "Arial Black";
+                      color: green;
+                      background-color: greenyellow;
+
+        }
+
+    </style>
+    <table align="center" border="2">
+        <tr>
+            <th class="welcome"><a href="{% url 'add_classes' %}"> Schedule New Classes</a></th>
+            <th class="welcome"><a href="{% url 'view_classes' %}">View all Scheduled Classes</a></th>
+        </tr>
+    </table>
+{% endblock %}

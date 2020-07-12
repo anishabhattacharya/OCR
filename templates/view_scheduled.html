@@ -1,0 +1,29 @@
+
+{% extends 'common.html' %}
+{% block anisha %}
+    <form action="{% url 'view_classes' %}" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+    <tr>
+        <th class="course_info">Name</th>
+        <th class="course_info">Faculty</th>
+        <th class="course_info">Date</th>
+        <th class="course_info">Time</th>
+        <th class="course_info">Fee</th>
+        <th class="course_info">Duration</th>
+    </tr>
+
+     {% for x in data %}
+         <tr>
+             <th class="course_info">{{ x.name }}</th>
+             <th class=course_info">{{ x.faculty }}</th>
+             <th class="course_info">{{ x.date }}</th>
+             <th class="course_inf">{{ x.time }}</th>
+             <th class="course_inf">{{ x.fee }}</th>
+             <th class="course_inf">{{ x.duration }}</th>
+    </tr>
+    {% endfor %}
+
+    </table>
+    </form>
+{% endblock %}
