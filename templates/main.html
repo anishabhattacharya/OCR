@@ -1,3 +1,5 @@
+{% extends 'common.html' %}
+{% block anisha %}
 <html>
 <head>
     <style>
@@ -9,6 +11,7 @@
                       font-family: "Arial Black";
                       font-size: 20px;
                       width: 600px;
+
         }
         .title_stu
                 {     text-align: center;
@@ -19,17 +22,29 @@
                       font-size: 10px;
 
         }
+        #copyright{
+                      text-align: center;
+                      font-size: 10px;
+                      font-family: "Agency FB";
+                      padding: 5px;
+                      background-color: yellow;
+                      color: crimson;
+
+        }
     </style>
+
     <table align="center" border="4">
         <tr>
             <th id="stu_title" colspan="4">Student Page</th>
         </tr>
         <tr>
-            <th class="title_stu">Register</th>
-            <th class="title_stu">Login</th>
+            <th class="title_stu"><a href="{% url 'register_student' %}">Register</a></th>
+            <th class="title_stu"><a href="{% url 'student_login' %}">Login</a></th>
             <th class="title_stu">Search</th>
             <th class="title_stu">Contact Us</th>
         </tr>
+
     </table>
 </head>
 </html>
+{% endblock %}

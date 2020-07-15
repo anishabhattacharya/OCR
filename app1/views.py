@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from app1.models import Course,Student
+from django.db import IntegrityError
 
 def ShowIndex(request):
     return render(request,"index.html")
@@ -38,11 +39,43 @@ def save_courses(request):
     fee = request.POST.get("t5")
     duration=request.POST.get("t6")
     Course(name=name, faculty=faculty, date=date, time=time, fee=fee, duration=duration).save()
-    return redirect('view_courses')
+    return redirect('add_classes')
 
 def main(request):
     return render(request,"main.html")
 
+def register_student(request):
+    return render(request,"student_registration.html")
+
+def view_register(request):
+    res = Student.objects.all()
+    return render(request,"view_register.html")
+
+
+def save_info(request):
+    name=request.POST.get("s1")
+    contactno=request.POST.get("s2")
+    email=request.POST.get("s3")
+    password=request.POST.get("s4")
+    print(password)
+    Student(name=name, contactno=contactno, email=email, password=password).save()
+    return redirect('main')
+
+#def view_register(request):
+    #res = Student.objects.all()
+    #return render(request,"view_register.html")
 
 
 
+def studentLogin(request):
+    return render(request,"student_login.html")
+
+
+def studentloginCheck(request):
+    un=request.POST.get('u1')
+    pas=request.POST.get('u2')
+    if un == "Mail" and pas == "Password":
+        return redirect('view_scheduled')
+    else:
+        messages.error(request,"Invalid username and password")
+        return redirect('student_login')

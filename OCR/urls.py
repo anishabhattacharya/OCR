@@ -25,6 +25,12 @@ urlpatterns = [
     path('admin_welcome/',views.adminWelcome,name="admin_welcome"),
     path('add_classes/',views.add_classes,name="add_classes"),
     path('view_classes/',views.view_classes,name="view_classes"),
-    path('save_courses/',views.save_courses,name="save_course"),
+    path('save_courses/',views.save_courses,name="save_courses"),
     path('main/',views.main,name="main"),
+    path('register_student/',views.register_student,name="register_student"),
+    path('view_register/',views.view_register,name="view_register"),
+    path('save_info/',views.save_info,name="save_info"),
+    path('student_login/',views.studentLogin,name="student_login"),
+    path('student_login_check/',views.studentloginCheck,name="student_login_check"),
+
 ]

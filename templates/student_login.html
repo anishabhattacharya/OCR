@@ -1,0 +1,21 @@
+
+{% extends 'common.html' %}
+{% block anisha %}
+    <form action="{% url 'student_login_check' %}" method="post">
+    {% csrf_token %}
+        <style>
+            #admin_title{
+                           font-family: Algerian;
+                           font-size: 30px;
+                           color: crimson;
+        }</style>
+    <table align="center" border="0">
+        <tr>
+            <th id="admin_title">Student Login Page</th>
+        </tr>
+        <tr><th class="admin_field"><input type="text" placeholder="Username" required name="u1"></th></tr>
+        <tr><th class="admin_field"><input type="password" placeholder="Password" required name="u2"></th></tr>
+        <tr><th class="admin_field"><button type="submit">Login</button> </th></tr>
+    </table>
+    </form>
+{% endblock %}

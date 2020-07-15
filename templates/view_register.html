@@ -1,0 +1,27 @@
+
+
+{% extends 'common.html' %}
+{% block anisha %}
+    <form action="{% url 'view_register' %}" method="post">
+    {% csrf_token %}
+    <table align="center" border="2">
+    <tr>
+        <th class="student_info">Name</th>
+        <th class="student_info">ContactNo</th>
+        <th class="student_info">Email</th>
+        <th class="student_info">Password</th>
+
+    </tr>
+
+     {% for x in data %}
+         <tr>
+             <th class="student_info">{{ x.name }}</th>
+             <th class="student_info">{{ x.contactno }}</th>
+             <th class="student_info">{{ x.email }}</th>
+             <th class="student_inf">{{ x.password }}</th>
+         </tr>
+    {% endfor %}
+
+    </table>
+    </form>
+{% endblock %}

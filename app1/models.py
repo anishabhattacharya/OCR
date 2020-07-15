@@ -15,4 +15,4 @@ class Student(models.Model):
     name=models.CharField(max_length=50,unique=True)
     contactno=models.IntegerField(unique=True)
     email=models.EmailField(unique=True)
-    password=models.CharField(max_length=10,unique=True)
+    password=models.CharField(max_length=10)
