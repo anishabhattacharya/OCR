@@ -16,3 +16,10 @@ class Student(models.Model):
     contactno=models.IntegerField(unique=True)
     email=models.EmailField(unique=True)
     password=models.CharField(max_length=10)
+
+
+class EnrolledStudents(models.Model):
+    name=models.CharField(max_length=50,unique=True)
+    contactno=models.IntegerField(unique=True)
+    mailid=models.EmailField(unique=True)
+    courses=models.CharField(max_length=50,unique=True)

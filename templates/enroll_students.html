@@ -1,0 +1,15 @@
+
+{% extends 'common.html' %}
+{% block anisha %}
+    <form action="#" method="post">
+    {% csrf_token %}
+    <table align="center" border="0">
+        <tr><th id="enr_stu" align="center">STUDENT ENROLLMENT PAGE</th></tr>
+        <tr><th class="stu_enr"><input type="text" placeholder="Name" required name="a1"></th></tr>
+        <tr><th class="stu_enr"><input type="tel" placeholder="Contact No" required name="a2"></th></tr>
+        <tr><th class="stu_enr"><input type="email" placeholder="Email" required name="a3"></th></tr>
+        <tr><th class="stu_enr"><input type="text" placeholder="Course" required name="a4"></th></tr>
+        <tr><th class="stu_enr"><button type="submit">Enroll</button></th></tr>
+    </table>
+    </form>
+{% endblock %}

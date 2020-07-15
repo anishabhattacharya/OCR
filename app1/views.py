@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from app1.models import Course,Student
+from app1.models import Course,Student,EnrolledStudents
 from django.db import IntegrityError
 
 def ShowIndex(request):
@@ -74,8 +74,20 @@ def studentLogin(request):
 def studentloginCheck(request):
     un=request.POST.get('u1')
     pas=request.POST.get('u2')
-    if un == "Mail" and pas == "Password":
-        return redirect('view_scheduled')
-    else:
-        messages.error(request,"Invalid username and password")
-        return redirect('student_login')
+    print(un,pas)
+    usr = Student.objects.filter(email =un)
+    print(usr)
+    for x in usr:
+        if pas==x.password:
+            return render(request,"welcome_student.html")
+    messages.error(request,"invalid user")
+    return redirect('student_login')
+
+def welcome_student(request):
+    return render(request, "welcome_student.html")
+
+def enroll_students(request):
+    return render(request,"enroll_students.html")
+
+def view_enrolledcourse(request):
+    return render(request,"view_enrolledcourse.html")
