@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from app1.models import Course,Student,EnrolledStudents
-from django.db import IntegrityError
+#from django.db import IntegrityError
 
 def ShowIndex(request):
     return render(request,"index.html")
@@ -89,5 +89,17 @@ def welcome_student(request):
 def enroll_students(request):
     return render(request,"enroll_students.html")
 
-def view_enrolledcourse(request):
-    return render(request,"view_enrolledcourse.html")
+def enrolled_course(request):
+    resu=EnrolledStudents.objects.all()
+    return render(request, "enrolled_course.html", {"data":resu})
+
+def save_stu(request):
+    name=request.POST.get("a1")
+    contactno=request.POST.get("a2")
+    email=request.POST.get("a3")
+    course=request.POST.get("a4")
+    EnrolledStudents(name=name, contactno=contactno, mailid=email, courses=course).save()
+    return redirect('enroll_students')
+
+
+
