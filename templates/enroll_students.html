@@ -1,8 +1,16 @@
 
 {% extends 'common.html' %}
 {% block anisha %}
-    <form action="{% url 'enrolled_course' %}" method="post">
+    <form action="{% url 'save_stu' %}" method="post">
     {% csrf_token %}
+        <style>
+            #enr_stu{      font-size: 20px;
+                           font-family: Algerian;
+                           background-color: greenyellow;
+                           color: darkslateblue;
+
+            }
+        </style>
     <table align="center" border="0">
         <tr><th id="enr_stu" align="center">STUDENT ENROLLMENT PAGE</th></tr>
         <tr><th class="stu_enr"><input type="text" placeholder="Name" required name="a1"></th></tr>

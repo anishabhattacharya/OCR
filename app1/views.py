@@ -99,7 +99,11 @@ def save_stu(request):
     email=request.POST.get("a3")
     course=request.POST.get("a4")
     EnrolledStudents(name=name, contactno=contactno, mailid=email, courses=course).save()
+    return redirect('enrolled_course')
+
+def delete(request):
+    sub = request.GET.get("sub")
+    # Query to delete 1 record from DB
+    EnrolledStudents.objects.filter(courses=sub).delete()
     return redirect('enroll_students')
-
-
 

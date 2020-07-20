@@ -1,11 +1,19 @@
 
 {% extends 'common.html' %}
 {% block anisha %}
+    <style>
+        #stu_wel{       font-size: 20px;
+                        font-family: Algerian;
+                        background-color: greenyellow;
+                        color: darkslateblue;
+
+        }
+    </style>
     <table align="center" border="3">
         <tr>
             <th class="stu_wel"><a href="{% url 'enroll_students' %}">Enroll The Course</a></th>
-            <th class="stu_wel"><a href="#">View All The Enrolled Courses</a></th>
-            <th class="stu_wel"><a href="#">Cancel The Enrolled Courses</a></th>
+            <th class="stu_wel"><a href="{% url 'enrolled_course' %}">View All The Enrolled Courses</a></th>
+            <th class="stu_wel"><a href="{% url 'delete' %}">Cancel The Enrolled Courses</a></th>
         </tr>
 
     </table>

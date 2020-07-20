@@ -1,13 +1,25 @@
 {% extends 'common.html' %}
 {% block anisha %}
-    <form action="{% url 'save_stu' %}" method="post">
+    {% load static %}
+    <form action="{% url 'enrolled_course' %}" method="post">
     {% csrf_token %}
+        <style>
+            #stu_info{      font-size: 20px;
+                            font-family: Algerian;
+                            background-color: greenyellow;
+                            color: darkslateblue;
+                            padding: 2px;
+
+            }
+        </style>
     <table align="center" border="2">
     <tr>
         <th class="stu_info">Name</th>
         <th class="stu_info">Contactno</th>
         <th class="stu_info">Email</th>
         <th class="stu_info">Course</th>
+        <th class="stu_info">Delete</th>
+        <th class="stu_info">Update</th>
     </tr>
 
      {% for x in data %}
@@ -16,6 +28,17 @@
              <th class="stu_info">{{ x.contactno }}</th>
              <th class="stu_info">{{ x.mailid }}</th>
              <th class="stu_inf">{{ x.courses }}</th>
+             <th><a href="{% url 'delete' %}?sub={{ x.courses }}">
+                 <img src="{% static 'images/delete.png' %}" style="height: 15px">
+                 </a>
+             </th>
+             <th>
+                 <form action="{% url 'update' %}">
+                 <input type="hidden" name="t1" value="{{ x.courses }}">
+                 <button type="submit">Update</button>
+                 </form>
+             </th>
+
 
     </tr>
     {% endfor %}
